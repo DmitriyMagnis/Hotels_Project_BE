@@ -5,12 +5,11 @@ const hotelRouter = Router()
 const hotelRepository = new HotelsService()
 
 hotelRouter.get("/all", async (req: Request, res: Response) => {
-  const { hotelName, city, checkInTime, checkOutTime, rooms } = req.query
+  const { destination, checkInTime, checkOutTime, rooms } = req.query
 
   try {
     const todos = await hotelRepository.getAllHotels({
-      name: hotelName,
-      city,
+      city: destination,
       checkInTime,
       checkOutTime,
       rooms,
